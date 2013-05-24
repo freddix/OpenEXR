@@ -1,16 +1,16 @@
 Summary:	High dynamic-range (HDR) image file format support libraries
 Name:		OpenEXR
-Version:	1.7.0
-Release:	2
+Version:	2.0.0
+Release:	1
 License:	Industrial Light & Magic
 Group:		Libraries
 Source0:	http://download.savannah.nongnu.org/releases/openexr/openexr-%{version}.tar.gz
-# Source0-md5:	27113284f7d26a58f853c346e0851d7a
+# Source0-md5:	0820e1a8665236cb9e728534ebf8df18
 Patch0:		%{name}-gcc.patch
 URL:		http://www.openexr.com/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	ilmbase-devel
+BuildRequires:	ilmbase-devel >= 2.0.0
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
 BuildRequires:	pkg-config
@@ -43,7 +43,7 @@ OpenEXR utilities.
 
 %prep
 %setup -qn openexr-%{version}
-%patch0 -p1
+#%patch0 -p1
 
 %build
 %{__libtoolize}
@@ -69,8 +69,8 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS COPYING ChangeLog NEWS README
-%attr(755,root,root) %ghost %{_libdir}/libIlmImf.so.6
-%attr(755,root,root) %{_libdir}/libIlmImf.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libIlmImf-Imf_2_0.so.20
+%attr(755,root,root) %{_libdir}/libIlmImf-Imf_2_0.so.*.*.*
 
 %files devel
 %defattr(644,root,root,755)
@@ -83,11 +83,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %files progs
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/exr2aces
 %attr(755,root,root) %{_bindir}/exrenvmap
 %attr(755,root,root) %{_bindir}/exrheader
 %attr(755,root,root) %{_bindir}/exrmakepreview
 %attr(755,root,root) %{_bindir}/exrmaketiled
+%attr(755,root,root) %{_bindir}/exrmultipart
 %attr(755,root,root) %{_bindir}/exrmultiview
 %attr(755,root,root) %{_bindir}/exrstdattr
 
