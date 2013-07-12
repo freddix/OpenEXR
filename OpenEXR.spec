@@ -1,11 +1,11 @@
 Summary:	High dynamic-range (HDR) image file format support libraries
 Name:		OpenEXR
-Version:	2.0.0
+Version:	2.0.1
 Release:	1
 License:	Industrial Light & Magic
 Group:		Libraries
 Source0:	http://download.savannah.nongnu.org/releases/openexr/openexr-%{version}.tar.gz
-# Source0-md5:	0820e1a8665236cb9e728534ebf8df18
+# Source0-md5:	2049849b978d1fd11067535464757045
 Patch0:		%{name}-gcc.patch
 URL:		http://www.openexr.com/
 BuildRequires:	autoconf
