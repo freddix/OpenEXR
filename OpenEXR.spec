@@ -1,16 +1,16 @@
 Summary:	High dynamic-range (HDR) image file format support libraries
 Name:		OpenEXR
-Version:	2.0.1
+Version:	2.1.0
 Release:	1
 License:	Industrial Light & Magic
 Group:		Libraries
 Source0:	http://download.savannah.nongnu.org/releases/openexr/openexr-%{version}.tar.gz
-# Source0-md5:	2049849b978d1fd11067535464757045
+# Source0-md5:	33735d37d2ee01c6d8fbd0df94fb8b43
 Patch0:		%{name}-gcc.patch
 URL:		http://www.openexr.com/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	ilmbase-devel >= 2.0.0
+BuildRequires:	ilmbase-devel >= 2.1.0
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
 BuildRequires:	pkg-config
@@ -60,6 +60,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -69,13 +71,12 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS COPYING ChangeLog NEWS README
-%attr(755,root,root) %ghost %{_libdir}/libIlmImf-Imf_2_0.so.20
-%attr(755,root,root) %{_libdir}/libIlmImf-Imf_2_0.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libIlmImf-Imf_2_1.so.21
+%attr(755,root,root) %{_libdir}/libIlmImf-Imf_2_1.so.*.*.*
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libIlmImf.so
-%{_libdir}/libIlmImf.la
 %{_includedir}/OpenEXR/Imf*.h
 %{_includedir}/OpenEXR/OpenEXRConfig.h
 %{_aclocaldir}/openexr.m4
